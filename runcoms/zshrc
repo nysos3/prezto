@@ -1,9 +1,24 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+export TERM="xterm-256color"
+export NODE_ENV="localhost"
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+bindkey '^H' backward-kill-line
+bindkey '^[H' backward-kill-line
+bindkey '^[w' backward-kill-line
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '~/.zshrc'
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+export PATH=~/Projects/Clickagy/devops-tools:$PATH
+export PATH=~/.jetbrains-scripts:$PATH
+export PATH=~/.composer/vendor/bin:$PATH
+export PATH=/opt/puppetlabs/bin/:$PATH
+POWERLEVEL9K_MODE="nerdfont-complete"
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -11,3 +26,82 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+alias update_zsh="cd ~/.zprezto/ && git pull && git submodule update --init --recursive"
+alias zshrc="vim ~/.zshrc && source ~/.zshrc"
+#POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_RPROMPT_ON_NEWLINE=false
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX=""
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$ "
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=""
+# POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=""
+POWERLEVEL9K_VCS_STAGED_ICON="\u2795"
+POWERLEVEL9K_VCS_UNSTAGED_ICON="\u2757"
+POWERLEVEL9K_VCS_UNTRACKED_ICON="\u2753"
+POWERLEVEL9K_SHOW_CHANGESET="false"
+POWERLEVEL9K_CHANGESET_HASH_LENGTH="4"
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND="235"
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND="blue"
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND="235"
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND="009"
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND="235"
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND="003"
+POWERLEVEL9K_DIR_HOME_BACKGROUND="012"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="235"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND="012"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="235"
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="012"
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="235"
+POWERLEVEL9K_ROOT_INDICATOR_BACKGROUND="red"
+POWERLEVEL9K_ROOT_INDICATOR_FOREGROUND="235"
+POWERLEVEL9K_TODO_BACKGROUND="clear"
+POWERLEVEL9K_TODO_FOREGROUND="green"
+POWERLEVEL9K_OS_ICON_BACKGROUND="clear"
+POWERLEVEL9K_OS_ICON_FOREGROUND="235"
+POWERLEVEL9K_HISTORY_BACKGROUND="012"
+POWERLEVEL9K_HISTORY_FOREGROUND="235"
+POWERLEVEL9K_STATUS_OK_BACKGROUND="green"
+POWERLEVEL9K_STATUS_OK_FOREGROUND="235"
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND="red"
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND="235"
+POWERLEVEL9K_LOAD_CRITICAL_BACKGROUND="clear"
+POWERLEVEL9K_LOAD_WARNING_BACKGROUND="clear"
+POWERLEVEL9K_LOAD_NORMAL_BACKGROUND="clear"
+POWERLEVEL9K_LOAD_CRITICAL_FOREGROUND="red"
+POWERLEVEL9K_LOAD_WARNING_FOREGROUND="yellow"
+POWERLEVEL9K_LOAD_NORMAL_FOREGROUND="green"
+POWERLEVEL9K_LOAD_CRITICAL_VISUAL_IDENTIFIER_COLOR="red"
+POWERLEVEL9K_LOAD_WARNING_VISUAL_IDENTIFIER_COLOR="yellow"
+POWERLEVEL9K_LOAD_NORMAL_VISUAL_IDENTIFIER_COLOR="green"
+POWERLEVEL9K_RAM_BACKGROUND="clear"
+POWERLEVEL9K_RAM_FOREGROUND="green"
+POWERLEVEL9K_RAM_ELEMENTS="ram_free"
+POWERLEVEL9K_TIME_BACKGROUND="green"
+POWERLEVEL9K_TIME_FOREGROUND="235"
+POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %I:%M}"
+POWERLEVEL9K_STATUS_VERBOSE="true"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=('status' 'background_jobs' 'root_indicator' 'dir' 'vcs')
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('history' 'time')
+#POWERLEVEL9K_APPLE_ICON="\u2191"
+alias update_aws_cli="pip3 install --upgrade --user awsebcli"
+alias ctop="top -stats pid,command,cpu,idlew,power -o power -d"
+alias ls="ls -lash"
+alias portal="cd ~/Projects/Clickagy/Portal"
+alias website="cd ~/Projects/Clickagy/websitev2"
+alias clickagy="cd ~/Projects/Clickagy"
+alias sync_tax="~/Projects/Clickagy/taxonomy-thumbnails/update.sh"
+alias nr="npm run"
+alias update_all="brew update && brew upgrade && brew cu -fa"
+
+standup() {
+  echo "Cody
+Deepak
+Jeremy
+Justin
+Kenn" | gshuf
+}
